@@ -15,8 +15,17 @@ public class MatchingOp {
         list.add(new Person("Iyan", 5,"India"));
         list.add(new Person("Ray", 63,"China"));
         //1. verifica daca lista de persoana contine cel putin o persoana din Canada
+        boolean ContainsCanadians = list.stream()
+                .anyMatch(person -> person.getCountry().equals("Canada"));
+        System.out.println(ContainsCanadians);
         //2. verifica daca toate persoanele din lista sunt din Canada
+        boolean areAllCanadians = list.stream()
+                .allMatch(person -> person.getCountry().equals("Canada"));
+        System.out.println(areAllCanadians);
         //3. verifica daca nu exista nicio persoana din Rusia
+        boolean anyRussian = list.stream()
+                .noneMatch(person -> person.getCountry().equals("Russia"));
+        System.out.println(anyRussian);
 
     }
 }

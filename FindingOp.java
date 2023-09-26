@@ -18,6 +18,12 @@ public class FindingOp {
         list.add(new Person("Ray", 63,"China"));
         //1. printeaza prima persoana gasita din lista care este din India
 
+        Optional<Person> personOptional = list.stream()
+                .filter(person -> person.getCountry().equals("India"))
+                .findFirst();
+        if(personOptional.isPresent()){
+            System.out.println(personOptional.get());
+        }
 
     }
 
