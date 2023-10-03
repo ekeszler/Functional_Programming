@@ -19,10 +19,19 @@ public class FindingOp {
         //1. printeaza prima persoana gasita din lista care este din India
 
         Optional<Person> personOptional = list.stream()
-                .filter(person -> person.getCountry().equals("India"))
+                .filter(person -> person.getCountry().equals("ygjhk"))
                 .findFirst();
         if(personOptional.isPresent()){
             System.out.println(personOptional.get());
+        }
+
+        list.sort((person1, person2) -> Integer.compare(person1.getAge(), person2.getAge()));
+
+        try{
+            System.out.println(personOptional.orElseThrow(() -> new Exception("Person not doung")));
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
         }
 
     }
